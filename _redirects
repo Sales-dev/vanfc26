@@ -1,0 +1,22 @@
+# Clean URLs — redirect .html extensions
+/index.html / 301
+/bc-place-guide.html /bc-place-guide 301
+/schedule.html /schedule 301
+/visitors-guide.html /visitors-guide 301
+/getting-to-bc-place.html /getting-to-bc-place 301
+/getting-around-vancouver-world-cup.html /getting-around-vancouver-world-cup 301
+/vancouver-transit-world-cup.html /vancouver-transit-world-cup 301
+/where-to-stay-vancouver-world-cup.html /where-to-stay-vancouver-world-cup 301
+/supporters-guide.html /supporters-guide 301
+/food-drink-guide.html /food-drink-guide 301
+/food-by-country.html /food-by-country 301
+/fan-festival-pne.html /fan-festival-pne 301
+/canada-atmosphere.html /canada-atmosphere 301
+/things-to-do.html /things-to-do 301
+/gastown.html /gastown 301
+/yaletown.html /yaletown 301
+/granville-island.html /granville-island 301
+/stanley-park.html /stanley-park 301
+/day-trips.html /day-trips 301
+/budget-tips.html /budget-tips 301
+/family-guide.html /family-guide 301

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanfc26.com/sitemap.xml

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaletown Vancouver: Bars, Restaurants & Waterfront Guide for World Cup 2026 | VanFC26</title>
+    <meta name="description" content="Yaletown guide for FIFA World Cup 2026 fans — best patio bars, restaurants, False Creek waterfront, and how to get there from BC Place.">
+    <meta name="keywords" content="Yaletown Vancouver World Cup, Yaletown bars FIFA 2026, best patio bars Vancouver, Yaletown restaurants World Cup, False Creek fans">
+    <style>
+        :root {
+            --red: #d42b2b;
+            --red-dark: #a81f1f;
+            --gold: #f5b800;
+            --dark: #0d0d0d;
+            --dark-2: #141414;
+            --dark-3: #1e1e1e;
+            --dark-4: #262626;
+            --white: #ffffff;
+            --white-70: rgba(255,255,255,0.7);
+            --white-40: rgba(255,255,255,0.4);
+            --white-10: rgba(255,255,255,0.08);
+            --radius: 12px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--dark); color: var(--white); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,13,0.95); backdrop-filter: blur(16px); border-bottom: 1px solid var(--white-10); }
+        .nav-inner { max-width: 860px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.3rem; font-weight: 900; text-decoration: none; letter-spacing: -0.5px; }
+        .logo .van { color: var(--white); }
+        .logo .fc { color: var(--red); }
+        .logo .num { color: var(--gold); }
+        .nav-back { color: var(--white-70); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-back:hover { color: var(--white); }
+
+        .article-hero { background: linear-gradient(180deg, #0a1a10 0%, var(--dark) 100%); padding: 60px 24px 48px; border-bottom: 1px solid var(--white-10); }
+        .article-hero-inner { max-width: 860px; margin: 0 auto; }
+        .article-tag { display: inline-block; background: var(--red); color: var(--white); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 5px 12px; border-radius: 4px; margin-bottom: 20px; }
+        .article-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+        .gold { color: var(--gold); }
+        .article-hero .lead { font-size: 1.1rem; color: var(--white-70); max-width: 680px; line-height: 1.7; margin-bottom: 28px; }
+        .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+        .hero-meta span { font-size: 0.8rem; color: var(--white-40); display: flex; align-items: center; gap: 6px; }
+
+        .article-body { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+        .article-body h2 { font-size: 1.5rem; font-weight: 800; margin: 44px 0 16px; color: var(--white); }
+        .article-body h2:first-child { margin-top: 0; }
+        .article-body h3 { font-size: 1.1rem; font-weight: 700; margin: 28px 0 10px; color: var(--gold); }
+        .article-body p { color: var(--white-70); margin-bottom: 16px; font-size: 1rem; }
+        .article-body p strong { color: var(--white); }
+        .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(245,184,0,0.3); }
+        .article-body a:hover { border-bottom-color: var(--gold); }
+        .article-body ul, .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+        .article-body li { color: var(--white-70); margin-bottom: 8px; font-size: 1rem; }
+        .article-body li strong { color: var(--white); }
+
+        .toc { background: var(--dark-3); border: 1px solid var(--white-10); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 40px; }
+        .toc h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--white-40); margin-bottom: 14px; }
+        .toc ul { padding-left: 20px; }
+        .toc li { color: var(--white-70); margin-bottom: 8px; }
+        .toc a { color: var(--gold); text-decoration: none; }
+        .toc a:hover { text-decoration: underline; }
+
+        .related-articles { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--white-10); }
+        .related-articles > h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--white-40); margin-bottom: 0; grid-column: 1/-1; }
+        .guide-card { display: block; background: var(--dark-3); border: 1px solid var(--white-10); border-radius: var(--radius); padding: 20px 24px; text-decoration: none; transition: border-color 0.2s; }
+        .guide-card:hover { border-color: var(--gold); }
+        .guide-tag { display: inline-block; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 3px; margin-bottom: 10px; }
+        .tag-guide { background: rgba(245,184,0,0.15); color: var(--gold); }
+        .tag-local { background: rgba(100,200,100,0.15); color: #7dd87d; }
+        .tag-fan { background: rgba(100,150,255,0.15); color: #8ab4ff; }
+        .guide-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
+        .guide-card p { font-size: 0.875rem; color: var(--white-70); margin: 0; }
+
+        @media (max-width: 600px) {
+            .related-articles { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo"><span class="van">Van</span><span class="fc">FC</span><span class="num">26</span></a>
+        <a href="/" class="nav-back">← All Guides</a>
+    </div>
+</nav>
+
+<div class="article-hero">
+    <div class="article-hero-inner">
+        <span class="article-tag">Neighbourhood Guide</span>
+        <h1>Yaletown: Vancouver's <span class="gold">Patio District</span></h1>
+        <p class="lead">Former warehouse district turned upscale neighbourhood, Yaletown sits right on False Creek's north shore. Great patio bars, top-tier restaurants, and an easy 10-minute walk from BC Place — perfect for pre and post-match.</p>
+    </div>
+</div>
+
+<main class="article-body">
+
+    <div class="toc">
+        <h3>On this page</h3>
+        <ul>
+            <li><a href="#getting-there">Getting to Yaletown</a></li>
+            <li><a href="#false-creek">False Creek Waterfront</a></li>
+            <li><a href="#bars">Best Bars &amp; Patios</a></li>
+            <li><a href="#restaurants">Restaurants</a></li>
+            <li><a href="#roundhouse">The Roundhouse &amp; Local Arts</a></li>
+            <li><a href="#olympic-village">Walk to Olympic Village</a></li>
+        </ul>
+    </div>
+
+
+    <section>
+        <h2 id="getting-there">Getting to Yaletown</h2>
+        <p>Yaletown sits at the north end of False Creek, sandwiched between downtown and the Olympic Village neighbourhood. It's a 15-minute walk south from the main downtown hotel district, or one stop on the Canada Line SkyTrain to <strong>Yaletown-Roundhouse station</strong>. From BC Place, it's a 10-minute walk west along Pacific Boulevard.</p>
+        <p>The neighbourhood is compact — Mainland Street, Hamilton Street, and Davie Street form the core. Most of the best bars and restaurants are within a 5-minute walk of the SkyTrain station.</p>
+    </section>
+
+    <section>
+        <h2 id="false-creek">False Creek Waterfront</h2>
+        <p>Yaletown's greatest asset is its waterfront position on False Creek. The seawall here connects to the rest of the city's cycling and walking network, with Granville Island visible across the water to the west and Science World's distinctive dome to the east.</p>
+        <p>The <strong>David Lam Park</strong> waterfront strip is a great spot to decompress — wide open lawns, water views, and mountain backdrops. On summer evenings it fills with locals and there's usually a relaxed, festive atmosphere. During the World Cup, expect pop-up vendors and potentially outdoor screenings nearby.</p>
+        <p>The Aquabus ferry stops at Yaletown (at the foot of Davie Street), giving you a scenic 5-minute crossing to Granville Island or connections to other False Creek stops.</p>
+    </section>
+
+    <section>
+        <h2 id="bars">Best Bars &amp; Patios</h2>
+        <p><strong>Yaletown Brewing Company</strong> is the neighbourhood's anchor — a large brewpub with an extensive patio right on Mainland Street, reliable craft beers brewed on-site, and a lively crowd on match days. It's one of the best spots in the city for outdoor World Cup watching. Arrive early; the patio fills fast in good weather.</p>
+        <p><strong>The Shebeen Whisky House</strong> is a cosy whisky bar in a converted heritage warehouse — good for quieter pre-match drinks. <strong>Rodney's Oyster House</strong> has an excellent raw bar and Happy Hour ($1.50 oysters at certain hours) worth building your pre-match schedule around.</p>
+        <p><strong>George Ultra Lounge</strong> on Hamilton Street is a higher-end nightlife option if you want something more polished post-match. For beer on a budget, the neighbourhood pubs along Davie Street will be screening matches without the premium Yaletown prices.</p>
+    </section>
+
+    <section>
+        <h2 id="restaurants">Restaurants</h2>
+        <p><strong>Cioppino's Mediterranean Grill</strong> on Hamilton Street is one of Vancouver's best restaurants — if you're celebrating after a good result, this is the place. Reservations essential. For something more casual but still excellent, <strong>Blue Water Cafe</strong> has the finest seafood in Vancouver; the raw bar is a must if you're a seafood person.</p>
+        <p><strong>Minami</strong> on Mainland is Yaletown's best sushi restaurant — aburi (flame-seared) sushi is their specialty and genuinely unlike anything else. For a quicker, cheaper option: the ramen at <strong>Motomachi Shokudo</strong> on Hamilton is authentic and filling.</p>
+        <p>Yaletown is not the cheapest neighbourhood in Vancouver, but the quality is consistently high. If your budget is tight, come for Happy Hour drinks (5–7pm at most bars) and eat elsewhere before heading over.</p>
+    </section>
+
+    <section>
+        <h2 id="roundhouse">The Roundhouse &amp; Local Arts</h2>
+        <p>The <strong>Roundhouse Community Arts &amp; Recreation Centre</strong> is a converted CPR roundhouse — the historic turntable for steam locomotives is preserved inside. It's a community space with a small theatre and exhibition space; worth a look if you walk past.</p>
+        <p>The neighbourhood has a strong design and architecture identity — many of the converted warehouses on Mainland and Homer have striking interiors visible through large windows at street level. It's a great neighbourhood for an evening wander.</p>
+    </section>
+
+    <section>
+        <h2 id="olympic-village">Walk to Olympic Village</h2>
+        <p>Just east of Yaletown along the seawall is <strong>Olympic Village</strong> — built for the 2010 Winter Games athletes and now a thriving residential neighbourhood with excellent food options. <strong>Tap &amp; Barrel</strong> on the waterfront has one of Vancouver's best views with Science World as the backdrop.</p>
+        <p>The 20-minute walk from Yaletown along the seawall to Olympic Village and then to Science World is one of Vancouver's most enjoyable urban walks — flat, interesting, and constantly changing views.</p>
+    </section>
+
+    <div class="related-articles">
+        <h3>More guides</h3>
+        <a class="guide-card" href="/gastown">
+            <span class="guide-tag tag-local">Neighbourhood Guide</span>
+            <h3>Gastown: Vancouver's Historic Fan Quarter</h3>
+            <p>Cobblestone streets, the steam clock, character bars, and excellent restaurants in Vancouver's oldest neighbourhood.</p>
+        </a>
+        <a class="guide-card" href="/granville-island">
+            <span class="guide-tag tag-local">Neighbourhood Guide</span>
+            <h3>Granville Island: Markets, Breweries &amp; Waterfront Vibes</h3>
+            <p>The best public market in the city, Granville Island Brewing, arts studios, and a scenic ferry crossing.</p>
+        </a>
+    </div>
+
+</main>
+
+</body>
+</html>
