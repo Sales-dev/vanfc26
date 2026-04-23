@@ -1,111 +1,468 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vancouver FIFA World Cup 2026 Match Schedule | VanFC26</title>
-    <meta name="description" content="FIFA World Cup 2026 Vancouver match schedule — all group stage and knockout matches at BC Place, with dates, times, and venue information.">
-    <meta name="keywords" content="Vancouver World Cup 2026 schedule, BC Place FIFA matches 2026, World Cup 2026 Vancouver fixtures, FIFA 2026 Vancouver dates, BC Place match schedule">
-    <style>
-        :root{--red:#d42b2b;--red-dark:#a81f1f;--gold:#f5b800;--dark:#0d0d0d;--dark-2:#141414;--dark-3:#1e1e1e;--dark-4:#262626;--white:#ffffff;--white-70:rgba(255,255,255,0.7);--white-40:rgba(255,255,255,0.4);--white-10:rgba(255,255,255,0.08);--radius:12px;}
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--dark);color:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;}
-        nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--white-10);}
-        .nav-inner{max-width:860px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
-        .logo{font-size:1.3rem;font-weight:900;text-decoration:none;letter-spacing:-0.5px;}
-        .logo .van{color:var(--white);}.logo .fc{color:var(--red);}.logo .num{color:var(--gold);}
-        .nav-back{color:var(--white-70);text-decoration:none;font-size:0.9rem;font-weight:500;}
-        .nav-back:hover{color:var(--white);}
-        .article-hero{background:linear-gradient(180deg,#0a1a10 0%,var(--dark) 100%);padding:60px 24px 48px;border-bottom:1px solid var(--white-10);}
-        .article-hero-inner{max-width:860px;margin:0 auto;}
-        .article-tag{display:inline-block;background:var(--red);color:var(--white);font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border-radius:4px;margin-bottom:20px;}
-        .article-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:20px;}
-        .gold{color:var(--gold);}
-        .article-hero .lead{font-size:1.1rem;color:var(--white-70);max-width:680px;line-height:1.7;margin-bottom:28px;}
-        .article-body{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
-        .article-body h2{font-size:1.5rem;font-weight:800;margin:44px 0 16px;color:var(--white);}
-        .article-body h2:first-child{margin-top:0;}
-        .article-body h3{font-size:1.1rem;font-weight:700;margin:28px 0 10px;color:var(--gold);}
-        .article-body p{color:var(--white-70);margin-bottom:16px;font-size:1rem;}
-        .article-body p strong{color:var(--white);}
-        .article-body a{color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(245,184,0,0.3);}
-        .article-body a:hover{border-bottom-color:var(--gold);}
-        .article-body ul,.article-body ol{padding-left:20px;margin-bottom:16px;}
-        .article-body li{color:var(--white-70);margin-bottom:8px;font-size:1rem;}
-        .article-body li strong{color:var(--white);}
-        .toc{background:var(--dark-3);border:1px solid var(--white-10);border-radius:var(--radius);padding:24px 28px;margin-bottom:40px;}
-        .toc h3{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--white-40);margin-bottom:14px;}
-        .toc ul{padding-left:20px;}.toc li{color:var(--white-70);margin-bottom:8px;}
-        .toc a{color:var(--gold);text-decoration:none;}.toc a:hover{text-decoration:underline;}
-        .related-articles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:48px;padding-top:32px;border-top:1px solid var(--white-10);}
-        .related-articles>h3{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--white-40);margin-bottom:0;grid-column:1/-1;}
-        .guide-card{display:block;background:var(--dark-3);border:1px solid var(--white-10);border-radius:var(--radius);padding:20px 24px;text-decoration:none;transition:border-color 0.2s;}
-        .guide-card:hover{border-color:var(--gold);}
-        .guide-tag{display:inline-block;font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:3px;margin-bottom:10px;}
-        .tag-guide{background:rgba(245,184,0,0.15);color:var(--gold);}
-        .tag-local{background:rgba(100,200,100,0.15);color:#7dd87d;}
-        .tag-fan{background:rgba(100,150,255,0.15);color:#8ab4ff);}
-        .guide-card h3{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
-        .guide-card p{font-size:0.875rem;color:var(--white-70);margin:0;}
-        @media(max-width:600px){.related-articles{grid-template-columns:1fr;}}
-    </style>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vancouver 2026 World Cup Match Schedule | BC Place Fixtures &amp; Times</title>
+  <meta name="description" content="Full confirmed match schedule for FIFA World Cup 2026 at BC Place, Vancouver. 7 matches: Australia vs Turkiye, Canada vs Qatar, New Zealand vs Egypt, and more. Dates, kickoff times, tickets, and Google Calendar links." />
+  <link rel="canonical" href="https://vanfc26.com/schedule.html" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style>
+    :root{--red:#d42b2b;--red-dark:#a81f1f;--gold:#f5b800;--gold-dark:#c49200;--dark:#0d0d0d;--dark-2:#141414;--dark-3:#1e1e1e;--dark-4:#262626;--white:#ffffff;--white-90:rgba(255,255,255,0.9);--white-70:rgba(255,255,255,0.7);--white-40:rgba(255,255,255,0.4);--white-10:rgba(255,255,255,0.08);--radius:12px;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--dark);color:var(--white);line-height:1.7;-webkit-font-smoothing:antialiased;}
+    a{color:var(--gold);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--white-10);}
+    .nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+    .logo{font-size:1.25rem;font-weight:900;text-decoration:none;letter-spacing:-0.5px;}
+    .logo .van{color:var(--white);}.logo .fc{color:var(--red);}.logo .num{color:var(--gold);}
+    .nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+    .nav-links a{color:var(--white-70);font-size:0.82rem;padding:5px 10px;border-radius:6px;transition:background 0.15s;}
+    .nav-links a:hover{background:var(--white-10);color:var(--white);text-decoration:none;}
+    .nav-links a.active{color:var(--gold);}
+    .strip{background:var(--red);padding:10px 0;overflow:hidden;}
+    .strip-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;gap:24px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;}
+    .strip-inner::-webkit-scrollbar{display:none;}
+    .strip-match{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.92);flex-shrink:0;}
+    .strip-dot{color:rgba(255,255,255,0.4);margin:0 4px;}
+    .hero{background:var(--dark-2);border-bottom:1px solid var(--white-10);padding:52px 24px 44px;}
+    .hero-inner{max-width:900px;margin:0 auto;}
+    .hero-label{font-size:0.78rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+    .hero h1{font-size:2.6rem;font-weight:900;line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px;}
+    .hero h1 span{color:var(--gold);}
+    .hero-sub{font-size:1.05rem;color:var(--white-70);max-width:580px;margin-bottom:28px;}
+    .hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+    .stat{display:flex;flex-direction:column;gap:2px;}
+    .stat-val{font-size:1.6rem;font-weight:800;color:var(--white);}
+    .stat-label{font-size:0.75rem;color:var(--white-40);text-transform:uppercase;letter-spacing:0.08em;}
+    main{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+    .section-head{margin:48px 0 20px;}
+    .section-head h2{font-size:1.4rem;font-weight:800;letter-spacing:-0.3px;margin-bottom:4px;}
+    .section-head p{font-size:0.9rem;color:var(--white-70);}
+    .section-divider{width:36px;height:3px;background:var(--red);border-radius:2px;margin-bottom:12px;}
+    .section-divider.gold{background:var(--gold);}
+    .match-card{background:var(--dark-3);border:1px solid var(--white-10);border-radius:var(--radius);padding:22px 24px;margin-bottom:14px;transition:border-color 0.15s;}
+    .match-card:hover{border-color:rgba(255,255,255,0.2);}
+    .match-card.canada{border-left:3px solid #e63030;}
+    .match-card.knockout{border-left:3px solid var(--gold);}
+    .match-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+    .match-date{font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--white-40);margin-bottom:4px;}
+    .match-teams{font-size:1.25rem;font-weight:800;letter-spacing:-0.3px;line-height:1.2;}
+    .match-teams .vs{font-size:0.85rem;font-weight:400;color:var(--white-40);margin:0 6px;}
+    .match-tags{display:flex;gap:8px;align-items:center;flex-wrap:wrap;flex-shrink:0;}
+    .tag{font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:0.04em;text-transform:uppercase;}
+    .tag-group{background:var(--white-10);color:var(--white-70);}
+    .tag-canada{background:rgba(230,48,48,0.18);color:#ff7070;}
+    .tag-knockout{background:rgba(245,184,0,0.15);color:var(--gold);}
+    .match-meta{display:flex;gap:20px;flex-wrap:wrap;align-items:center;padding-top:12px;border-top:1px solid var(--white-10);}
+    .meta-item{display:flex;align-items:center;gap:6px;font-size:0.83rem;color:var(--white-70);}
+    .match-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+    .btn{display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;font-weight:700;padding:8px 14px;border-radius:8px;border:1px solid var(--white-10);background:transparent;color:var(--white-70);cursor:pointer;text-decoration:none;transition:all 0.15s;letter-spacing:0.02em;}
+    .btn:hover{background:var(--white-10);color:var(--white);text-decoration:none;}
+    .btn-red{border-color:rgba(212,43,43,0.6);color:#ff7070;}
+    .btn-red:hover{background:rgba(212,43,43,0.12);}
+    .btn-gold{border-color:rgba(196,146,0,0.6);color:var(--gold);}
+    .btn-gold:hover{background:rgba(245,184,0,0.1);}
+    .btn-cal{border-color:rgba(80,200,80,0.4);color:rgba(100,220,100,1);}
+    .btn-cal:hover{background:rgba(80,200,80,0.1);}
+    .tz-section{background:var(--dark-2);border:1px solid var(--white-10);border-radius:var(--radius);overflow:hidden;margin-top:8px;}
+    .tz-table{width:100%;border-collapse:collapse;font-size:0.83rem;}
+    .tz-table th{background:var(--dark-4);color:var(--white-40);font-weight:700;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;padding:10px 14px;text-align:left;}
+    .tz-table td{padding:11px 14px;border-top:1px solid var(--white-10);color:var(--white-90);vertical-align:top;}
+    .tz-table tr:hover td{background:var(--white-10);}
+    .tz-teams{font-weight:700;color:var(--white);}
+    .tz-date{color:var(--white-70);font-size:0.78rem;}
+    .tz-hl{color:var(--gold);font-weight:700;}
+    .info-box{background:var(--dark-3);border:1px solid var(--white-10);border-radius:var(--radius);padding:20px 22px;margin:12px 0;}
+    .info-box.gold{border-left:3px solid var(--gold);}
+    .info-box.red{border-left:3px solid var(--red);}
+    .info-box h3{font-size:0.9rem;font-weight:700;margin-bottom:8px;color:var(--white);}
+    .info-box p,.info-box li{font-size:0.87rem;color:var(--white-70);line-height:1.6;}
+    .info-box ul{padding-left:18px;}
+    .info-box li{margin-bottom:5px;}
+    .info-box .btn-row{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;}
+    .link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px;}
+    .link-card{background:var(--dark-3);border:1px solid var(--white-10);border-radius:var(--radius);padding:16px 18px;text-decoration:none;transition:border-color 0.15s,background 0.15s;display:block;}
+    .link-card:hover{border-color:rgba(255,255,255,0.2);background:var(--dark-4);text-decoration:none;}
+    .link-card-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--white-40);margin-bottom:4px;}
+    .link-card-title{font-size:0.95rem;font-weight:700;color:var(--white);}
+    .link-card-arrow{color:var(--white-40);margin-top:6px;font-size:0.82rem;}
+    footer{border-top:1px solid var(--white-10);padding:36px 24px;text-align:center;}
+    .footer-inner{max-width:900px;margin:0 auto;}
+    .footer-logo{font-size:1.1rem;font-weight:900;margin-bottom:10px;}
+    .footer-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;}
+    .footer-links a{font-size:0.82rem;color:var(--white-40);text-decoration:none;}
+    .footer-links a:hover{color:var(--white);}
+    .footer-copy{font-size:0.78rem;color:var(--white-40);}
+    @media(max-width:620px){
+      .hero h1{font-size:1.9rem;}
+      .match-top{flex-direction:column;}
+      .match-tags{margin-top:4px;}
+      .tz-table th:nth-child(n+4),.tz-table td:nth-child(n+4){display:none;}
+      .nav-links{display:none;}
+    }
+  </style>
 </head>
 <body>
-<nav><div class="nav-inner">
-    <a href="/" class="logo"><span class="van">Van</span><span class="fc">FC</span><span class="num">26</span></a>
-    <a href="/" class="nav-back">← All Guides</a>
-</div></nav>
-<div class="article-hero"><div class="article-hero-inner">
-    <span class="article-tag">Schedule</span>
-    <h1>Vancouver <span class="gold">FIFA World Cup 2026</span> Match Schedule</h1>
-    <p class="lead">BC Place will host FIFA World Cup 2026 group stage matches and potentially knockout rounds. Here's what we know about the schedule and what to expect.</p>
-</div></div>
-<main class="article-body">
-    <div class="toc"><h3>On this page</h3><ul>
-            <li><a href="#overview-sched">Overview</a></li>
-            <li><a href="#group-stage">Group Stage</a></li>
-            <li><a href="#knockout">Knockout Stage</a></li>
-            <li><a href="#match-times">Match Times &amp; Kickoffs</a></li>
-            <li><a href="#tickets-sched">Getting Tickets</a></li>
-            <li><a href="#other-cities">Other Host Cities</a></li>
-        </ul></div>
 
-    <section>
-        <h2 id="overview-sched">Overview</h2>
-        <p>The 2026 FIFA World Cup is the largest in history — 48 teams, 104 matches, across 16 host cities in Canada, the United States, and Mexico. Vancouver (BC Place) is one of three Canadian host cities alongside Toronto and Winnipeg.</p>
-        <p>The tournament runs from <strong>June 11 to July 19, 2026</strong>. The final will be held at MetLife Stadium in New Jersey. Vancouver's matches are concentrated in the group stage during June, with a potential knockout round match in July.</p>
-        <p><em>Note: The complete detailed schedule with specific team matchups is released by FIFA as the draw is conducted. Check fifa.com for the authoritative, up-to-date schedule.</em></p>
-    </section>
-    <section>
-        <h2 id="group-stage">Group Stage</h2>
-        <p>Vancouver is confirmed as a group stage venue. BC Place will host multiple group matches across the first two and a half weeks of the tournament. Group stage matches feature three games per group (48 groups of 3 teams in 2026's expanded format), with each team playing once per group.</p>
-        <p>For group stage matches: atmosphere is excellent, tickets are more accessible than knockout rounds, and you see two different national teams play — making it the best opportunity to experience the tournament if you're not a fan of a specific nation.</p>
-    </section>
-    <section>
-        <h2 id="knockout">Knockout Stage</h2>
-        <p>Whether Vancouver hosts knockout matches beyond the group stage depends on FIFA's venue allocation, announced closer to the tournament. Host cities that demonstrate strong ticket sales and operational success during the group stage are more likely to receive knockout matches. Previous World Cup history suggests 3–4 host cities per country receive knockout round matches beyond the Round of 32.</p>
-    </section>
-    <section>
-        <h2 id="match-times">Match Times &amp; Kickoffs</h2>
-        <p>FIFA typically schedules matches across multiple time windows to balance broadcast rights across global time zones. For matches in Vancouver (Pacific Time, UTC-7 in summer), common kickoff times are expected to be:</p>
-        <ul>
-            <li><strong>Midday matches:</strong> 12:00 PM local — designed for European evening broadcasts</li>
-            <li><strong>Afternoon matches:</strong> 3:00 PM or 4:00 PM local</li>
-            <li><strong>Evening matches:</strong> 6:00 PM or 7:00 PM local — most common, best atmosphere</li>
-        </ul>
-        <p>Specific kickoff times for all BC Place matches will be confirmed by FIFA on the official schedule announcement.</p>
-    </section>
-    <section>
-        <h2 id="tickets-sched">Getting Tickets</h2>
-        <p>Tickets are sold through FIFA's official ticketing platform at fifa.com. The initial sales phases allocated tickets by ballot. Remaining inventory goes on sale on a first-come, first-served basis. The FIFA Ticket Exchange handles the official resale market.</p>
-        <p>Hospitality packages (including premium seating, food, and pre-match events) are sold through FIFA's official hospitality arm. These are significantly more expensive but include guaranteed seating and a premium experience.</p>
-    </section>
-    <section>
-        <h2 id="other-cities">Other Host Cities</h2>
-        <p>If you're combining Vancouver with matches elsewhere, the other nearby host cities are worth considering. <strong>Toronto</strong> (BMO Field expanded) is a direct flight east. <strong>Kansas City</strong>, <strong>Seattle</strong>, and <strong>San Francisco</strong> are a 2–3 hour flight south. Many fans are planning multi-city itineraries around their national team's group placement.</p>
-        <p>The full 48-nation draw will reveal which groups contain the most high-profile matchups and which venues are likely to have the most atmosphere — useful for planning if you're flexible about which matches to attend.</p>
-    </section>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="van">Van</span><span class="fc">FC</span><span class="num">26</span></a>
+    <div class="nav-links">
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="bc-place-guide.html">BC Place</a>
+      <a href="getting-to-bc-place.html">Getting There</a>
+      <a href="bars-pubs-world-cup-vancouver.html">Bars &amp; Pubs</a>
+      <a href="fan-festival-pne.html">Fan Festival</a>
+      <a href="index.html">All Guides</a>
+    </div>
+  </div>
+</nav>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-match">Jun 12 &mdash; Australia vs Turkiye &mdash; 9 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jun 18 &mdash; Canada vs Qatar &mdash; 3 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jun 21 &mdash; New Zealand vs Egypt &mdash; 6 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jun 24 &mdash; Canada vs Switzerland &mdash; 12 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jun 26 &mdash; New Zealand vs Belgium &mdash; 8 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jul 2 &mdash; Round of 32 &mdash; 8 PM PT</span>
+    <span class="strip-dot">&middot;</span>
+    <span class="strip-match">Jul 7 &mdash; Round of 16 &mdash; 1 PM PT</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">BC Place &middot; Vancouver, Canada</div>
+    <h1>FIFA World Cup 2026<br><span>Match Schedule</span></h1>
+    <p class="hero-sub">All 7 confirmed matches at BC Place &mdash; real dates, kickoff times in Pacific Time, direct ticket links, and one-click Google Calendar adds.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-val">7</span><span class="stat-label">BC Place Matches</span></div>
+      <div class="stat"><span class="stat-val">2</span><span class="stat-label">Canada Home Games</span></div>
+      <div class="stat"><span class="stat-val">54,500</span><span class="stat-label">Stadium Capacity</span></div>
+      <div class="stat"><span class="stat-val">Jun 12 &ndash; Jul 7</span><span class="stat-label">Vancouver Dates</span></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="section-head">
+    <div class="section-divider"></div>
+    <h2>Group Stage &mdash; 5 Matches</h2>
+    <p>BC Place hosts five group stage fixtures across June 12&ndash;26. All times are Pacific Time (PT / UTC&minus;7). Vancouver hosts more matches than any other Canadian city.</p>
+  </div>
+
+  <!-- MATCH 1: Australia vs Turkiye -->
+  <div class="match-card">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Friday, June 12, 2026</div>
+        <div class="match-teams">Australia <span class="vs">vs</span> T&uuml;rkiye</div>
+      </div>
+      <div class="match-tags"><span class="tag tag-group">Group Stage</span></div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 9:00 PM PT &nbsp;&middot;&nbsp; Midnight ET &nbsp;&middot;&nbsp; 05:00 BST (Sat)</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#127784; ~17&deg;C / 63&deg;F &mdash; bring a layer for the evening</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener" class="btn btn-red">&#9917; FIFA Fixtures Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-red">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+Australia+vs+T%C3%BCrkiye+%7C+BC+Place&dates=20260613T040000Z%2F20260613T060000Z&details=FIFA+World+Cup+2026+Group+Stage+at+BC+Place%2C+Vancouver.+Kickoff%3A+9%3A00+PM+PT.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+      <a href="bars-pubs-world-cup-vancouver.html" class="btn">&#127866; Pre-match Pubs</a>
+    </div>
+  </div>
+
+  <!-- MATCH 2: Canada vs Qatar -->
+  <div class="match-card canada">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Wednesday, June 18, 2026</div>
+        <div class="match-teams">Canada <span class="vs">vs</span> Qatar</div>
+      </div>
+      <div class="match-tags">
+        <span class="tag tag-group">Group Stage</span>
+        <span class="tag tag-canada">Canada Home Game</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 3:00 PM PT &nbsp;&middot;&nbsp; 6:00 PM ET &nbsp;&middot;&nbsp; 23:00 BST</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#9728; ~20&deg;C / 68&deg;F &mdash; warm afternoon kickoff</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener" class="btn btn-red">&#9917; FIFA Fixtures Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-red">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+Canada+vs+Qatar+%7C+BC+Place&dates=20260618T220000Z%2F20260619T000000Z&details=FIFA+World+Cup+2026+Group+Stage+%7C+Canada+Home+Game+at+BC+Place%2C+Vancouver.+Kickoff%3A+3%3A00+PM+PT.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+      <a href="bars-pubs-world-cup-vancouver.html" class="btn">&#127866; Pre-match Pubs</a>
+    </div>
+  </div>
+
+  <!-- MATCH 3: New Zealand vs Egypt -->
+  <div class="match-card">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Saturday, June 21, 2026</div>
+        <div class="match-teams">New Zealand <span class="vs">vs</span> Egypt</div>
+      </div>
+      <div class="match-tags"><span class="tag tag-group">Group Stage</span></div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 6:00 PM PT &nbsp;&middot;&nbsp; 9:00 PM ET &nbsp;&middot;&nbsp; 02:00 BST (Sun)</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#127780; ~21&deg;C / 70&deg;F &mdash; pleasant Saturday evening</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener" class="btn btn-red">&#9917; FIFA Fixtures Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-red">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+New+Zealand+vs+Egypt+%7C+BC+Place&dates=20260622T010000Z%2F20260622T030000Z&details=FIFA+World+Cup+2026+Group+Stage+at+BC+Place%2C+Vancouver.+Kickoff%3A+6%3A00+PM+PT.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+      <a href="bars-pubs-world-cup-vancouver.html" class="btn">&#127866; Pre-match Pubs</a>
+    </div>
+  </div>
+
+  <!-- MATCH 4: Canada vs Switzerland -->
+  <div class="match-card canada">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Tuesday, June 24, 2026</div>
+        <div class="match-teams">Canada <span class="vs">vs</span> Switzerland</div>
+      </div>
+      <div class="match-tags">
+        <span class="tag tag-group">Group Stage</span>
+        <span class="tag tag-canada">Canada Home Game</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 12:00 PM PT &nbsp;&middot;&nbsp; 3:00 PM ET &nbsp;&middot;&nbsp; 20:00 BST</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#9728; ~22&deg;C / 72&deg;F &mdash; sunny midday kickoff</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.bcplace.com/?event=fifa-world-cup-2026-switzerland-vs-canada" target="_blank" rel="noopener" class="btn btn-red">&#9917; BC Place Event Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-red">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+Canada+vs+Switzerland+%7C+BC+Place&dates=20260624T190000Z%2F20260624T210000Z&details=FIFA+World+Cup+2026+Group+Stage+%7C+Canada+Home+Game+at+BC+Place%2C+Vancouver.+Kickoff%3A+12%3A00+PM+PT.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+      <a href="bars-pubs-world-cup-vancouver.html" class="btn">&#127866; Pre-match Pubs</a>
+    </div>
+  </div>
+
+  <!-- MATCH 5: New Zealand vs Belgium -->
+  <div class="match-card">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Thursday, June 26, 2026</div>
+        <div class="match-teams">New Zealand <span class="vs">vs</span> Belgium</div>
+      </div>
+      <div class="match-tags"><span class="tag tag-group">Group Stage</span></div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 8:00 PM PT &nbsp;&middot;&nbsp; 11:00 PM ET &nbsp;&middot;&nbsp; 04:00 BST (Fri)</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#127786; ~22&deg;C / 72&deg;F &mdash; warm summer evening</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener" class="btn btn-red">&#9917; FIFA Fixtures Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-red">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+New+Zealand+vs+Belgium+%7C+BC+Place&dates=20260627T030000Z%2F20260627T050000Z&details=FIFA+World+Cup+2026+Group+Stage+at+BC+Place%2C+Vancouver.+Kickoff%3A+8%3A00+PM+PT.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+      <a href="bars-pubs-world-cup-vancouver.html" class="btn">&#127866; Pre-match Pubs</a>
+    </div>
+  </div>
+
+  <!-- KNOCKOUT STAGE -->
+  <div class="section-head">
+    <div class="section-divider gold"></div>
+    <h2>Knockout Stage &mdash; 2 Matches</h2>
+    <p>Vancouver hosts a Round of 32 and Round of 16 in early July. Opponents are confirmed as group stage results come in &mdash; add to your calendar now to hold the date.</p>
+  </div>
+
+  <!-- MATCH 6: Round of 32 -->
+  <div class="match-card knockout">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Thursday, July 2, 2026</div>
+        <div class="match-teams">Round of 32 <span class="vs">&middot;</span> TBD vs TBD</div>
+      </div>
+      <div class="match-tags"><span class="tag tag-knockout">Round of 32</span></div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 8:00 PM PT &nbsp;&middot;&nbsp; 11:00 PM ET &nbsp;&middot;&nbsp; 04:00 BST (Fri)</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#127786; ~23&deg;C / 73&deg;F &mdash; warm dry July evening</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.bcplace.com/?event=fifa-world-cup-2026-round-of-16" target="_blank" rel="noopener" class="btn btn-gold">&#9889; BC Place Event Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-gold">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+Round+of+32+%7C+BC+Place+Vancouver&dates=20260703T030000Z%2F20260703T050000Z&details=FIFA+World+Cup+2026+Round+of+32+at+BC+Place%2C+Vancouver.+Kickoff%3A+8%3A00+PM+PT.+Teams+TBD.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+    </div>
+  </div>
+
+  <!-- MATCH 7: Round of 16 -->
+  <div class="match-card knockout">
+    <div class="match-top">
+      <div>
+        <div class="match-date">Tuesday, July 7, 2026</div>
+        <div class="match-teams">Round of 16 <span class="vs">&middot;</span> TBD vs TBD</div>
+      </div>
+      <div class="match-tags"><span class="tag tag-knockout">Round of 16</span></div>
+    </div>
+    <div class="match-meta">
+      <span class="meta-item">&#128337; 1:00 PM PT &nbsp;&middot;&nbsp; 4:00 PM ET &nbsp;&middot;&nbsp; 21:00 BST</span>
+      <span class="meta-item">&#128205; BC Place, Vancouver</span>
+      <span class="meta-item">&#9728; ~24&deg;C / 75&deg;F &mdash; peak summer afternoon</span>
+    </div>
+    <div class="match-actions">
+      <a href="https://www.bcplace.com/?event=fifa-world-cup-2026-round-of-16" target="_blank" rel="noopener" class="btn btn-gold">&#9889; BC Place Event Page</a>
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-gold">&#127903; Get Tickets</a>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=FIFA+World+Cup+2026+%7C+Round+of+16+%7C+BC+Place+Vancouver&dates=20260707T200000Z%2F20260707T220000Z&details=FIFA+World+Cup+2026+Round+of+16+at+BC+Place%2C+Vancouver.+Kickoff%3A+1%3A00+PM+PT.+Teams+TBD.+Tickets%3A+fifa.com%2Ftickets&location=BC+Place%2C+777+Pacific+Blvd%2C+Vancouver%2C+BC" target="_blank" rel="noopener" class="btn btn-cal">&#128197; Add to Calendar</a>
+    </div>
+  </div>
+
+  <!-- TIMEZONE TABLE -->
+  <div class="section-head">
+    <div class="section-divider"></div>
+    <h2>All Kickoff Times by Time Zone</h2>
+    <p>Flying in from overseas? Here&rsquo;s every match across the major time zones.</p>
+  </div>
+  <div class="tz-section">
+    <table class="tz-table">
+      <thead>
+        <tr>
+          <th>Match</th>
+          <th>PT (Vancouver)</th>
+          <th>ET (Toronto/NYC)</th>
+          <th>BST (London)</th>
+          <th>CET (Europe)</th>
+          <th>AEST (Sydney)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="tz-teams">Australia vs T&uuml;rkiye</span><br><span class="tz-date">Fri Jun 12</span></td>
+          <td class="tz-hl">9:00 PM</td><td>Midnight</td><td>5:00 AM Sat</td><td>6:00 AM Sat</td><td>2:00 PM Sat</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">Canada vs Qatar</span><br><span class="tz-date">Wed Jun 18</span></td>
+          <td class="tz-hl">3:00 PM</td><td>6:00 PM</td><td>11:00 PM</td><td>Midnight</td><td>8:00 AM Thu</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">New Zealand vs Egypt</span><br><span class="tz-date">Sat Jun 21</span></td>
+          <td class="tz-hl">6:00 PM</td><td>9:00 PM</td><td>2:00 AM Sun</td><td>3:00 AM Sun</td><td>11:00 AM Sun</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">Canada vs Switzerland</span><br><span class="tz-date">Tue Jun 24</span></td>
+          <td class="tz-hl">12:00 PM</td><td>3:00 PM</td><td>8:00 PM</td><td>9:00 PM</td><td>5:00 AM Wed</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">New Zealand vs Belgium</span><br><span class="tz-date">Thu Jun 26</span></td>
+          <td class="tz-hl">8:00 PM</td><td>11:00 PM</td><td>4:00 AM Fri</td><td>5:00 AM Fri</td><td>1:00 PM Fri</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">Round of 32</span><br><span class="tz-date">Thu Jul 2</span></td>
+          <td class="tz-hl">8:00 PM</td><td>11:00 PM</td><td>4:00 AM Fri</td><td>5:00 AM Fri</td><td>1:00 PM Fri</td>
+        </tr>
+        <tr>
+          <td><span class="tz-teams">Round of 16</span><br><span class="tz-date">Tue Jul 7</span></td>
+          <td class="tz-hl">1:00 PM</td><td>4:00 PM</td><td>9:00 PM</td><td>10:00 PM</td><td>6:00 AM Wed</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TICKETS -->
+  <div class="section-head">
+    <div class="section-divider"></div>
+    <h2>Getting Tickets</h2>
+  </div>
+
+  <div class="info-box gold">
+    <h3>Official FIFA Ticketing</h3>
+    <p>All tickets are sold through FIFA&rsquo;s official platform only. Group stage sales are largely complete &mdash; check official resale. Knockout round tickets go on sale per round as teams are confirmed. Watch for last-minute releases on match day.</p>
+    <div class="btn-row">
+      <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener" class="btn btn-gold">&#127903; FIFA Official Tickets</a>
+      <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/scores-fixtures" target="_blank" rel="noopener" class="btn">&#128203; Full FIFA Fixture List</a>
+      <a href="https://www.bcplace.com/" target="_blank" rel="noopener" class="btn">&#127979; BC Place Official Site</a>
+    </div>
+  </div>
+
+  <div class="info-box red">
+    <h3>Avoid Ticket Scams</h3>
+    <ul>
+      <li>Buy only from <strong>FIFA.com/tickets</strong> or officially authorised resellers</li>
+      <li>Never purchase from strangers outside BC Place on match day</li>
+      <li>Third-party resale sites carry high risk of fake or cancelled tickets</li>
+      <li>Tickets are fully digital &mdash; protect your FIFA account login</li>
+    </ul>
+  </div>
+
+  <div class="info-box">
+    <h3>No Ticket? Still Worth the Trip</h3>
+    <p>Watch every match live on giant screens at the <a href="fan-festival-pne.html">FIFA Fan Festival at the PNE</a> &mdash; free entry. Or catch the atmosphere at one of Vancouver&rsquo;s <a href="bars-pubs-world-cup-vancouver.html">top World Cup sports bars</a>, many with dedicated match-day setups near BC Place.</p>
+  </div>
+
+  <!-- MATCH DAY QUICK LINKS -->
+  <div class="section-head">
+    <div class="section-divider"></div>
+    <h2>Plan Your Match Day</h2>
+  </div>
+
+  <div class="link-grid">
+    <a href="getting-to-bc-place.html" class="link-card">
+      <div class="link-card-label">Transit &amp; Directions</div>
+      <div class="link-card-title">Getting to BC Place</div>
+      <div class="link-card-arrow">SkyTrain, parking, walking routes</div>
+    </a>
+    <a href="bc-place-guide.html" class="link-card">
+      <div class="link-card-label">Stadium Guide</div>
+      <div class="link-card-title">BC Place Visitor Info</div>
+      <div class="link-card-arrow">Gates, bag policy, seating, food</div>
+    </a>
+    <a href="bars-pubs-world-cup-vancouver.html" class="link-card">
+      <div class="link-card-label">Pre &amp; Post Match</div>
+      <div class="link-card-title">Best Bars &amp; Pubs</div>
+      <div class="link-card-arrow">16 venues with Maps links, by area</div>
+    </a>
+    <a href="fan-festival-pne.html" class="link-card">
+      <div class="link-card-label">Free Entry</div>
+      <div class="link-card-title">Fan Festival at the PNE</div>
+      <div class="link-card-arrow">Big screens, live music, food</div>
+    </a>
+    <a href="mexico-fans-vancouver.html" class="link-card">
+      <div class="link-card-label">Nation Guide</div>
+      <div class="link-card-title">Mexico Fan Guide</div>
+      <div class="link-card-arrow">Travel tips, bars, entry info</div>
+    </a>
+    <a href="where-to-stay-vancouver-world-cup.html" class="link-card">
+      <div class="link-card-label">Accommodation</div>
+      <div class="link-card-title">Where to Stay</div>
+      <div class="link-card-arrow">Best areas near BC Place</div>
+    </a>
+  </div>
+
 </main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo"><span style="color:var(--white)">Van</span><span style="color:var(--red)">FC</span><span style="color:var(--gold)">26</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="bc-place-guide.html">BC Place</a>
+      <a href="bars-pubs-world-cup-vancouver.html">Bars &amp; Pubs</a>
+      <a href="fan-festival-pne.html">Fan Festival</a>
+      <a href="getting-to-bc-place.html">Getting There</a>
+      <a href="mexico-fans-vancouver.html">Mexico Fans</a>
+    </div>
+    <p class="footer-copy">vanfc26.com &mdash; Vancouver&rsquo;s unofficial FIFA World Cup 2026 guide. Schedule data sourced from FIFA.com and BCPlace.com. Always verify kickoff times with official sources before travelling.</p>
+  </div>
+</footer>
+
 </body>
 </html>
