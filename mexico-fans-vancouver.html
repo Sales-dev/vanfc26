@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mexico Fans Guide – Vancouver 2026 World Cup</title>
+  <meta name="description" content="Everything Mexico fans need for the 2026 FIFA World Cup in Vancouver. Mexico match schedule, fan zones, where to watch, travel tips, and more." />
+  <link rel="canonical" href="https://vanfc26.com/mexico-fans-vancouver.html" />
+  <style>
+    :root {
+      --green: #006847;
+      --red: #CE1126;
+      --white: #FFFFFF;
+      --gold: #C8A951;
+      --dark: #1a1a1a;
+      --light-bg: #f5f5f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light-bg); color: var(--dark); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--green) 0%, #004d35 40%, var(--red) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 60px 20px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '🇲🇽';
+      font-size: 120px;
+      position: absolute;
+      top: -20px;
+      left: -30px;
+      opacity: 0.08;
+    }
+    .hero::after {
+      content: '⚽';
+      font-size: 100px;
+      position: absolute;
+      bottom: -10px;
+      right: -20px;
+      opacity: 0.08;
+    }
+    .hero h1 { font-size: 2.8rem; font-weight: 900; text-shadow: 0 2px 8px rgba(0,0,0,0.4); margin-bottom: 12px; }
+    .hero p { font-size: 1.2rem; opacity: 0.92; max-width: 640px; margin: 0 auto 24px; }
+    .hero .badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 700;
+      padding: 8px 22px;
+      border-radius: 30px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--green);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    nav ul { display: flex; list-style: none; justify-content: center; flex-wrap: wrap; }
+    nav ul li a {
+      display: block;
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    nav ul li a:hover { background: rgba(255,255,255,0.15); }
+
+    /* MAIN LAYOUT */
+    main { max-width: 960px; margin: 0 auto; padding: 30px 16px 60px; }
+
+    /* SECTION TITLES */
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--green);
+      border-left: 5px solid var(--red);
+      padding-left: 14px;
+      margin: 40px 0 18px;
+    }
+    h3 { font-size: 1.15rem; font-weight: 700; color: var(--dark); margin: 20px 0 8px; }
+
+    p { line-height: 1.7; margin-bottom: 12px; }
+
+    /* MATCH CARDS */
+    .matches { display: grid; gap: 16px; }
+    .match-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      border-left: 5px solid var(--green);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .match-card.group { border-left-color: var(--green); }
+    .match-card.knockout { border-left-color: var(--gold); }
+    .match-info { flex: 1; min-width: 200px; }
+    .match-info .vs { font-size: 1.3rem; font-weight: 800; }
+    .match-info .date { color: #666; font-size: 0.9rem; margin-top: 4px; }
+    .match-info .venue { font-size: 0.88rem; color: var(--green); font-weight: 600; margin-top: 2px; }
+    .match-tag {
+      background: var(--green);
+      color: white;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .match-tag.knockout { background: var(--gold); color: var(--dark); }
+
+    /* INFO CARDS */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 8px; }
+    .card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+    }
+    .card h3 { margin-top: 0; }
+    .card ul { padding-left: 18px; }
+    .card ul li { margin-bottom: 6px; line-height: 1.5; }
+
+    /* HIGHLIGHT BOX */
+    .highlight {
+      background: linear-gradient(135deg, #e8f5ee, #fff);
+      border: 2px solid var(--green);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin: 24px 0;
+    }
+    .highlight.red {
+      background: linear-gradient(135deg, #fdf0f1, #fff);
+      border-color: var(--red);
+    }
+    .highlight h3 { color: var(--green); margin-top: 0; }
+    .highlight.red h3 { color: var(--red); }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+    th { background: var(--green); color: white; padding: 10px 14px; text-align: left; }
+    td { padding: 10px 14px; border-bottom: 1px solid #eee; }
+    tr:hover td { background: #f9f9f5; }
+
+    /* TIPS LIST */
+    .tips-list { list-style: none; padding: 0; }
+    .tips-list li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      align-items: flex-start;
+    }
+    .tips-list li:last-child { border-bottom: none; }
+    .tips-list .icon { font-size: 1.4rem; flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: #aaa;
+      text-align: center;
+      padding: 30px 16px;
+      font-size: 0.88rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav ul li a { padding: 12px 12px; font-size: 0.82rem; }
+      .match-card { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🇲🇽 Mexico Fans in Vancouver</h1>
+  <p>Your complete guide to following El Tri at the 2026 FIFA World Cup — matches, fan zones, bars, and everything you need in Vancouver, BC.</p>
+  <span class="badge">FIFA World Cup 2026 · Vancouver</span>
+</div>
+
+<nav>
+  <ul>
+    <li><a href="#matches">Matches</a></li>
+    <li><a href="#watch">Where to Watch</a></li>
+    <li><a href="#fanzone">Fan Zone</a></li>
+    <li><a href="#travel">Getting There</a></li>
+    <li><a href="#tickets">Tickets</a></li>
+    <li><a href="#tips">Fan Tips</a></li>
+    <li><a href="index.html">← Home</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- INTRO -->
+  <section>
+    <h2>El Tri in Vancouver</h2>
+    <p>Mexico is one of the most passionately supported nations at any World Cup, and the 2026 tournament — co-hosted by the USA, Canada, and Mexico — is especially meaningful for El Tri fans. While Mexico's home group games are played in Mexico City, Guadalajara, and Monterrey, knockout rounds could bring the team to Vancouver's BC Place. And with the massive Mexican community and fan base in the Pacific Northwest, Vancouver will be buzzing no matter what stage Mexico is at.</p>
+    <p>This guide covers everything Mexico fans need to make the most of their time in Vancouver during the World Cup.</p>
+  </section>
+
+  <!-- MATCH SCHEDULE -->
+  <section id="matches">
+    <h2>Mexico Match Schedule</h2>
+    <p>Mexico's group stage games are hosted in Mexican cities. If El Tri advances, later rounds — Round of 32, Round of 16, Quarterfinals, Semifinals, and the Final — could be played in Vancouver at BC Place (capacity 54,500). Watch for official fixture announcements as the tournament progresses.</p>
+
+    <div class="matches">
+      <div class="match-card group">
+        <div class="match-info">
+          <div class="vs">Mexico vs. TBD</div>
+          <div class="date">Group Stage Match 1 · June 2026</div>
+          <div class="venue">Estadio Azteca, Mexico City, MX</div>
+        </div>
+        <span class="match-tag">Group Stage</span>
+      </div>
+      <div class="match-card group">
+        <div class="match-info">
+          <div class="vs">Mexico vs. TBD</div>
+          <div class="date">Group Stage Match 2 · June 2026</div>
+          <div class="venue">Estadio Akron, Guadalajara, MX</div>
+        </div>
+        <span class="match-tag">Group Stage</span>
+      </div>
+      <div class="match-card group">
+        <div class="match-info">
+          <div class="vs">Mexico vs. TBD</div>
+          <div class="date">Group Stage Match 3 · June/July 2026</div>
+          <div class="venue">Estadio BBVA, Monterrey, MX</div>
+        </div>
+        <span class="match-tag">Group Stage</span>
+      </div>
+      <div class="match-card knockout">
+        <div class="match-info">
+          <div class="vs">Knockout Rounds – Possible Vancouver Fixtures</div>
+          <div class="date">Round of 32 / R16 / QF / SF / Final · July 2026</div>
+          <div class="venue">BC Place Stadium, Vancouver, BC</div>
+        </div>
+        <span class="match-tag knockout">⚡ Knockouts</span>
+      </div>
+    </div>
+
+    <div class="highlight" style="margin-top: 20px;">
+      <h3>📅 Full Schedule Coming Soon</h3>
+      <p>FIFA will release the complete match schedule with confirmed opponents and exact dates closer to the tournament. Check <a href="https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026" target="_blank" rel="noopener">FIFA.com</a> for official updates. Bookmark this page — we'll update it as fixtures are confirmed.</p>
+    </div>
+  </section>
+
+  <!-- WHERE TO WATCH -->
+  <section id="watch">
+    <h2>Where to Watch Mexico Games in Vancouver</h2>
+    <p>Vancouver has a strong Mexican and Latin American community, and plenty of bars will be showing every El Tri match. For the best atmosphere, head to these areas:</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>🍺 Best Areas for Mexico Watch Parties</h3>
+        <ul>
+          <li><strong>Gastown</strong> – Sports bars with big screens, lively atmosphere</li>
+          <li><strong>Yaletown</strong> – Upscale pubs with plenty of screens</li>
+          <li><strong>Commercial Drive</strong> – Latin community hub, local vibe</li>
+          <li><strong>Downtown / Granville St</strong> – High density of sports bars</li>
+          <li><strong>Mount Pleasant</strong> – Growing bar scene, younger crowd</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🏟️ Top Sports Bars for Big Matches</h3>
+        <ul>
+          <li><strong>Shark Club Sports Bar</strong> – Massive screens, prime location</li>
+          <li><strong>The Blarney Stone</strong> – Gastown institution, always packed</li>
+          <li><strong>Craft Beer Market</strong> – Great setup for group watching</li>
+          <li><strong>Score on Davie</strong> – Known for World Cup crowds</li>
+          <li><strong>Library Square Public House</strong> – Central, multiple screens</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top: 16px;">For a full list of Vancouver bars and pubs showing World Cup matches — including Google Maps links — see our <a href="bars-pubs-world-cup-vancouver.html"><strong>complete bars & pubs guide</strong></a>.</p>
+  </section>
+
+  <!-- FAN ZONE -->
+  <section id="fanzone">
+    <h2>FIFA Fan Festival – Vancouver</h2>
+    <p>Vancouver will host an official FIFA Fan Festival during the World Cup. This free outdoor event is the place to be for fans of all nations — massive screens, live entertainment, food vendors, merchandise, and the electric atmosphere of thousands of supporters together.</p>
+
+    <div class="highlight">
+      <h3>🎉 Fan Festival Details</h3>
+      <p><strong>Location:</strong> Fan Zone details to be announced — likely near BC Place / False Creek waterfront area</p>
+      <p><strong>Cost:</strong> Free entry (ticketed for some premium areas)</p>
+      <p><strong>What's There:</strong> Giant screens showing all matches live, food & drink vendors, live music and entertainment, interactive football activities, official FIFA merchandise</p>
+      <p><strong>Best for:</strong> Watching group stage games without match tickets, meeting fans from around the world, soaking up the World Cup atmosphere</p>
+    </div>
+
+    <p>Mexico fans — show up in green jerseys, bring your drums and flags, and make some noise. The Fan Festival is where the real party happens between matches.</p>
+  </section>
+
+  <!-- GETTING THERE -->
+  <section id="travel">
+    <h2>Getting to Vancouver</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>✈️ Flying In</h3>
+        <p>Vancouver International Airport (YVR) is one of Canada's busiest and best-connected airports. Direct flights from Mexico City, Guadalajara, Cancún, and other major Mexican cities are available. Book early — flights will be expensive during the World Cup.</p>
+        <ul>
+          <li>Airlines: Aeromexico, Air Canada, WestJet, United, American</li>
+          <li>YVR is ~30 min from downtown by Canada Line SkyTrain</li>
+          <li>Skytrain to Waterfront Station: ~$4–5 CAD</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🚌 From Seattle / USA</h3>
+        <p>Many fans flying into Seattle (SEA) will cross into Vancouver. It's a great option if Seattle flights are cheaper.</p>
+        <ul>
+          <li>Seattle to Vancouver: ~2.5–3 hrs by bus/car</li>
+          <li>Quick Coach and Flixbus offer direct service</li>
+          <li>Amtrak Cascades: Seattle to Vancouver (scenic route)</li>
+          <li>Bring valid travel documents for the US–Canada border</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🚇 Getting Around Vancouver</h3>
+        <ul>
+          <li><strong>SkyTrain</strong> – Fast, clean, connects airport to downtown to BC Place</li>
+          <li><strong>BC Place Station</strong> – Stadium-door service on Expo/Millennium Line</li>
+          <li><strong>Buses</strong> – Extensive network, same Compass Card works</li>
+          <li><strong>Bike Share (Mobi)</strong> – Great for exploring the city</li>
+          <li><strong>Ride-share</strong> – Uber and Lyft both operate in Vancouver</li>
+          <li><strong>Walking</strong> – Downtown and Yaletown are very walkable</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY & TRAVEL DOCS -->
+  <section>
+    <h2>Entry Requirements for Mexican Citizens</h2>
+
+    <div class="highlight red">
+      <h3>⚠️ Important: eTA Required</h3>
+      <p>Mexican citizens travelling to Canada for the World Cup will need to check current entry requirements carefully. Depending on your situation, you may need a visa or an Electronic Travel Authorization (eTA). Requirements can change — always verify with the official Government of Canada website before booking.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Document</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Valid Passport</td>
+            <td>Required — ensure it's valid for at least 6 months beyond your travel dates</td>
+          </tr>
+          <tr>
+            <td>eTA or Visa</td>
+            <td>Check current requirements at <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada.html" target="_blank" rel="noopener">canada.ca</a></td>
+          </tr>
+          <tr>
+            <td>FIFA Ticket / Proof of Hotel</td>
+            <td>Not required for entry but recommended to have on hand</td>
+          </tr>
+          <tr>
+            <td>Return Flight</td>
+            <td>Border agents may ask for onward travel proof</td>
+          </tr>
+          <tr>
+            <td>Funds</td>
+            <td>Show you have sufficient funds for your stay</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 14px;">Apply for your eTA early at <a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/visit-canada/eta.html" target="_blank" rel="noopener">canada.ca/eta</a> — it usually takes minutes but can take longer during peak periods.</p>
+  </section>
+
+  <!-- TICKETS -->
+  <section id="tickets">
+    <h2>Match Tickets</h2>
+    <p>Mexico's group stage matches are sold through FIFA's official ticketing platform. For knockout matches in Vancouver, tickets are sold as "blind" tickets (you buy the seat, opponent is confirmed later).</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>🎟️ Official FIFA Tickets</h3>
+        <ul>
+          <li>Buy only from <a href="https://www.fifa.com/tickets" target="_blank" rel="noopener">FIFA.com/tickets</a></li>
+          <li>Group stage tickets were available in sales phases — check for resale</li>
+          <li>Knockout tickets go on sale as rounds progress</li>
+          <li>Watch for last-minute official releases</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>⚠️ Avoid Scams</h3>
+        <ul>
+          <li>Only buy from FIFA official site or verified resellers</li>
+          <li>Be very careful with third-party ticket sites</li>
+          <li>Never buy from strangers outside the stadium</li>
+          <li>Tickets are digital — guard your account credentials</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAN TIPS -->
+  <section id="tips">
+    <h2>Mexico Fan Tips for Vancouver</h2>
+
+    <ul class="tips-list">
+      <li>
+        <span class="icon">🌡️</span>
+        <div><strong>Weather:</strong> Vancouver in July is typically 18–25°C (64–77°F) with occasional rain. Bring a light jacket and a rain layer — you might not need it, but you'll be glad you have it. Mexico fans are used to heat, so Vancouver's summer is very manageable.</div>
+      </li>
+      <li>
+        <span class="icon">💵</span>
+        <div><strong>Currency:</strong> Canadian dollars (CAD). Credit cards are widely accepted everywhere. ATMs are plentiful. Budget roughly 1.3–1.4x the USD equivalent for prices — Vancouver is an expensive city.</div>
+      </li>
+      <li>
+        <span class="icon">🍽️</span>
+        <div><strong>Mexican Food:</strong> Vancouver has excellent Mexican restaurants. Head to Tijuana Picnic (Gastown), La Taqueria (multiple locations), or El Camino's (Main Street) for solid Mexican food. Commercial Drive also has Latin American spots.</div>
+      </li>
+      <li>
+        <span class="icon">📱</span>
+        <div><strong>SIM Card / Data:</strong> Buy a prepaid Canadian SIM at the airport (Fido, Koodo, or Lucky Mobile are good options) or activate an international plan with your Mexican carrier (Telcel, Movistar, AT&T Mexico). Rogers and Bell stores are everywhere downtown.</div>
+      </li>
+      <li>
+        <span class="icon">🏨</span>
+        <div><strong>Accommodation:</strong> Book early — World Cup accommodation in Vancouver will sell out fast. Downtown, Yaletown, and Gastown are the best areas for match days. Consider Richmond or Burnaby for more affordable options with easy SkyTrain access.</div>
+      </li>
+      <li>
+        <span class="icon">🦅</span>
+        <div><strong>Explore the City:</strong> Beyond football, Vancouver is stunning. Walk the Stanley Park Seawall (8.8 km around), take the SeaBus to North Vancouver, visit Granville Island Market, or do a day trip to Whistler or Victoria. Make a holiday of it!</div>
+      </li>
+      <li>
+        <span class="icon">🤝</span>
+        <div><strong>Canada–Mexico Rivalry:</strong> Canada is also in this World Cup as a co-host! Expect plenty of banter with Canadian fans — it's all in good spirit. The two nations have growing football cultures and mutual respect on the pitch.</div>
+      </li>
+      <li>
+        <span class="icon">🚨</span>
+        <div><strong>Emergency Numbers:</strong> Police/Fire/Ambulance: <strong>911</strong>. Mexican Consulate in Vancouver: look up the current number at <a href="https://consulmex.sre.gob.mx/vancouver/" target="_blank" rel="noopener">consulmex.sre.gob.mx/vancouver</a> before you travel.</div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PHRASES -->
+  <section>
+    <h2>Useful Phrases</h2>
+    <p>Most Vancouverites are friendly and many speak some Spanish, but here are a few English phrases that'll help:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>You Want to Say…</th>
+            <th>In English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>¿Dónde está el estadio?</td><td>"Where is the stadium?" → BC Place is near Main Street-Science World SkyTrain</td></tr>
+          <tr><td>Una cerveza, por favor</td><td>"A beer, please" — works in any Vancouver bar!</td></tr>
+          <tr><td>¿Tienen pantalla para ver el fútbol?</td><td>"Do you have a screen to watch football?"</td></tr>
+          <tr><td>La cuenta, por favor</td><td>"The bill, please" — or just ask for "the check"</td></tr>
+          <tr><td>¡México! ¡México!</td><td>This one needs no translation 🇲🇽</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="highlight" style="text-align: center; margin-top: 40px;">
+    <h3 style="color: var(--green);">Ready to Plan Your Trip? ⚽🇲🇽</h3>
+    <p>Check out our other guides to make the most of Vancouver 2026:</p>
+    <p style="margin-top: 10px;">
+      <a href="bars-pubs-world-cup-vancouver.html" style="color: var(--green); font-weight: 700;">🍺 Best Bars & Pubs to Watch the World Cup</a><br>
+      <a href="index.html" style="color: var(--green); font-weight: 700;">🏠 Vancouver 2026 Home</a>
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <p>vanfc26.com — Your Vancouver 2026 FIFA World Cup guide</p>
+  <p style="margin-top: 8px;"><a href="index.html">Home</a> · <a href="bars-pubs-world-cup-vancouver.html">Bars & Pubs</a> · <a href="mexico-fans-vancouver.html">Mexico Fans</a></p>
+  <p style="margin-top: 12px; font-size: 0.8rem; opacity: 0.7;">Information is subject to change. Always verify entry requirements and match schedules with official FIFA and Government of Canada sources.</p>
+</footer>
+
+</body>
+</html>
