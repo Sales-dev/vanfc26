@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vancouver World Cup 2026 Fan Map – Every Venue, Bar & SkyTrain Stop</title>
+<meta name="description" content="Interactive fan map for FIFA World Cup 2026 in Vancouver. Find BC Place, SkyTrain stations, fan zones, watch pubs, halal food, and neighbourhood guides all in one place.">
+<link rel="canonical" href="https://vanfc26.com/fan-map">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a1a;color:#e8e8e8}
+  nav{background:#0d0d1e;border-bottom:1px solid #1e2a4a;position:sticky;top:0;z-index:1000}
+  .nav-inner{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .logo{text-decoration:none;font-size:1.4rem;font-weight:800;letter-spacing:-1px}
+  .van{color:#fff}.fc{color:#e63e2f}.num{color:#aaa;font-size:1rem}
+  .nav-links a{color:#ccc;text-decoration:none;margin-left:20px;font-size:.9rem;transition:color .2s}
+  .nav-links a:hover{color:#e63e2f}
+  .hero{background:linear-gradient(135deg,#0d1b3e 0%,#1a0a0a 100%);padding:48px 20px 32px;text-align:center;border-bottom:2px solid #e63e2f}
+  .hero h1{font-size:2.2rem;font-weight:900;letter-spacing:-1px;color:#fff;margin-bottom:10px}
+  .hero p{color:#bbb;font-size:1.05rem;max-width:640px;margin:0 auto 20px}
+  .main{max-width:1100px;margin:0 auto;padding:20px}
+  .map-wrap{display:flex;gap:20px;align-items:flex-start}
+  #map{flex:1;height:600px;border-radius:12px;border:2px solid #1e2a4a;min-width:0}
+  .map-sidebar{width:260px;flex-shrink:0}
+  .legend{background:#13162a;border:1px solid #1e2a4a;border-radius:10px;padding:16px;margin-bottom:16px}
+  .legend h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.05em;color:#888;margin-bottom:12px}
+  .legend-item{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.88rem;color:#ccc;cursor:pointer;padding:4px 6px;border-radius:6px;transition:background .15s}
+  .legend-item:hover{background:#1e2a4a}
+  .legend-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+  .filter-btns{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+  .filter-btn{padding:5px 12px;border-radius:20px;border:1px solid #1e2a4a;background:#13162a;color:#ccc;font-size:.8rem;cursor:pointer;transition:all .2s}
+  .filter-btn.active,.filter-btn:hover{background:#e63e2f;border-color:#e63e2f;color:#fff}
+  .tip-box{background:#13162a;border:1px solid #1e2a4a;border-radius:10px;padding:14px;font-size:.84rem;color:#aaa;line-height:1.6}
+  .tip-box strong{color:#e63e2f;display:block;margin-bottom:4px}
+  section{margin:40px 0}
+  section h2{font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:16px;border-left:4px solid #e63e2f;padding-left:12px}
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .info-card{background:#13162a;border:1px solid #1e2a4a;border-radius:10px;padding:18px}
+  .info-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px}
+  .info-card p,.info-card li{font-size:.9rem;color:#bbb;line-height:1.6}
+  .info-card ul{padding-left:16px}
+  .info-card ul li{margin-bottom:4px}
+  .tag{display:inline-block;background:#1e2a4a;color:#7aa2d4;font-size:.72rem;padding:2px 8px;border-radius:10px;margin-right:4px;margin-top:4px}
+  .breadcrumb{font-size:.82rem;color:#666;padding:12px 0 0;max-width:1100px;margin:0 auto;padding-left:20px}
+  .breadcrumb a{color:#7aa2d4;text-decoration:none}
+  footer{background:#0d0d1e;border-top:1px solid #1e2a4a;text-align:center;padding:32px 20px;margin-top:60px}
+  footer p{color:#555;font-size:.85rem;margin-bottom:6px}
+  footer a{color:#7aa2d4;text-decoration:none}
+  footer nav{background:none;border:none;position:static;display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:12px;padding:0}
+  footer nav a{color:#666;font-size:.82rem;margin:0}
+  @media(max-width:768px){
+    .map-wrap{flex-direction:column}
+    .map-sidebar{width:100%}
+    #map{height:380px;width:100%}
+    .hero h1{font-size:1.6rem}
+    .filter-btns{display:none}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebPage",
+  "name":"Vancouver World Cup 2026 Fan Map",
+  "description":"Interactive map showing BC Place, SkyTrain stations, fan zones, watch pubs, halal food spots, and neighbourhood guides for FIFA World Cup 2026 Vancouver.",
+  "url":"https://vanfc26.com/fan-map",
+  "breadcrumb":{
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://vanfc26.com/"},
+      {"@type":"ListItem","position":2,"name":"Fan Map","item":"https://vanfc26.com/fan-map"}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"Where is BC Place in Vancouver?",
+      "acceptedAnswer":{"@type":"Answer","text":"BC Place is at 777 Pacific Blvd, Vancouver. The nearest SkyTrain station is Stadium–Chinatown on the Expo and Millennium lines, a 5-minute walk away."}
+    },
+    {
+      "@type":"Question",
+      "name":"Which SkyTrain line goes to BC Place?",
+      "acceptedAnswer":{"@type":"Answer","text":"Take the Expo Line or Millennium Line to Stadium–Chinatown station. From downtown hotels on the Canada Line, transfer at Waterfront or City Centre. BC Place is a 5-minute walk south from the station."}
+    },
+    {
+      "@type":"Question",
+      "name":"Where is the PNE Fan Festival for World Cup 2026?",
+      "acceptedAnswer":{"@type":"Answer","text":"The official FIFA Fan Festival is at the PNE (Pacific National Exhibition) at Hastings Park in East Vancouver. Take the Expo Line to Renfrew or Commercial–Broadway station, then bus 14 or 16 east on Hastings."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo"><span class="van">Van</span><span class="fc">FC</span><span class="num">26</span></a>
+    <div class="nav-links">
+      <a href="/schedule">Schedule</a>
+      <a href="/bc-place-guide">BC Place</a>
+      <a href="/getting-around-vancouver-world-cup">Transit</a>
+      <a href="/visitors-guide">Visitor Info</a>
+      <a href="/food-drink-guide">Food</a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="/">Home</a> &rsaquo; Fan Map
+</div>
+
+<div class="hero">
+  <h1>🗺️ Vancouver Fan Map</h1>
+  <p>Every venue, transit stop, fan zone, watch pub, and neighbourhood you need for World Cup 2026 — all on one map.</p>
+</div>
+
+<div class="main">
+
+  <div class="map-wrap">
+    <div id="map"></div>
+    <div class="map-sidebar">
+      <div class="filter-btns" id="filterBtns">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="venue">Venues</button>
+        <button class="filter-btn" data-cat="transit">Transit</button>
+        <button class="filter-btn" data-cat="fanzone">Fan Zones</button>
+        <button class="filter-btn" data-cat="bar">Watch Pubs</button>
+        <button class="filter-btn" data-cat="food">Food</button>
+        <button class="filter-btn" data-cat="hood">Neighbourhoods</button>
+      </div>
+      <div class="legend">
+        <h3>Map Legend</h3>
+        <div class="legend-item"><span class="legend-dot" style="background:#e63e2f"></span> Match Venue</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#3b82f6"></span> SkyTrain Station</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#f59e0b"></span> Fan Zone / Festival</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#10b981"></span> Watch Pub / Bar</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#a78bfa"></span> Food Spot</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#fb923c"></span> Neighbourhood</div>
+      </div>
+      <div class="tip-box">
+        <strong>💡 Tip</strong>
+        Tap any pin for details. On match days, Stadium–Chinatown SkyTrain is the fastest route to BC Place — avoid driving.
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Key Locations at a Glance</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>🏟️ BC Place</h3>
+        <p>Match venue for all 6 Vancouver group stage games + 1 knockout round. Capacity 54,500.</p>
+        <p style="margin-top:8px"><strong style="color:#7aa2d4">Nearest transit:</strong> Stadium–Chinatown SkyTrain (5 min walk)</p>
+        <span class="tag">Expo Line</span><span class="tag">Millennium Line</span>
+      </div>
+      <div class="info-card">
+        <h3>🎪 PNE Fan Festival</h3>
+        <p>Official FIFA Fan Festival at Hastings Park. Giant screens, live entertainment, cultural activations, food vendors, merchandise.</p>
+        <p style="margin-top:8px"><strong style="color:#7aa2d4">Getting there:</strong> Expo Line to Renfrew, then bus 14 east</p>
+        <span class="tag">Free entry</span><span class="tag">All ages</span>
+      </div>
+      <div class="info-card">
+        <h3>🚇 Canada Line to Downtown</h3>
+        <p>YVR Airport → Waterfront in ~25 min. Key stops: Richmond–Brighouse, Bridgeport, Vancouver City Centre, Waterfront.</p>
+        <p style="margin-top:8px">Transfer at Waterfront for Expo Line to Stadium–Chinatown.</p>
+        <span class="tag">Airport</span><span class="tag">$4.55 fare</span>
+      </div>
+      <div class="info-card">
+        <h3>🍺 Gastown Watch Zone</h3>
+        <p>Steam Clock area and Water Street bars open early on match days. The Blarney Stone, Chill Winston, and pub terraces fill fast — arrive 90 min early for a seat.</p>
+        <span class="tag">Lively</span><span class="tag">Standing room</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Neighbourhood Guides</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><a href="/gastown-world-cup-guide" style="color:#7aa2d4;text-decoration:none">Gastown</a></h3>
+        <ul>
+          <li>5 min from BC Place by foot or SkyTrain</li>
+          <li>Cobblestone streets, Victorian brick pubs</li>
+          <li>Best for pre-match drinks and post-match celebrations</li>
+          <li>Watch Steam Clock at Cambie & Water St</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3><a href="/yaletown-world-cup-guide" style="color:#7aa2d4;text-decoration:none">Yaletown</a></h3>
+        <ul>
+          <li>10 min walk from BC Place, south along Pacific Blvd</li>
+          <li>Upscale restaurants, rooftop patios, craft cocktails</li>
+          <li>Best for post-match dinner or quieter watch parties</li>
+          <li>False Creek seawall views</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3><a href="/commercial-drive-world-cup-guide" style="color:#7aa2d4;text-decoration:none">Commercial Drive</a></h3>
+        <ul>
+          <li>Take Expo Line to Commercial–Broadway, walk north</li>
+          <li>Multi-cultural cafes, Italian bakeries, international bars</li>
+          <li>Best for Brazil, Italy, Portugal fan atmospheres</li>
+          <li>Café Calabria, The Charlatan, The Anza Club</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3><a href="/richmond-world-cup-guide" style="color:#7aa2d4;text-decoration:none">Richmond</a></h3>
+        <ul>
+          <li>Canada Line: 20 min from downtown</li>
+          <li>Largest Asian food scene in North America</li>
+          <li>Aberdeen Centre, Parker Place food courts</li>
+          <li>Late-night dim sum, bubble tea, BBQ pork buns</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>SkyTrain Lines at a Glance</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Expo Line (Yellow/Blue)</h3>
+        <p>Waterfront → King George. Key stops for fans: Waterfront, Granville, Stadium–Chinatown, Main St–Science World, Commercial–Broadway, Renfrew (PNE).</p>
+        <p style="margin-top:8px;color:#e63e2f;font-size:.85rem">⚠ Closures possible on Sundays Jun–Jul — check TransLink before match day.</p>
+      </div>
+      <div class="info-card">
+        <h3>Canada Line (Teal)</h3>
+        <p>YVR Airport → Waterfront. Key stops: YVR-Airport, Bridgeport, Richmond–Brighouse, Vancouver City Centre, Waterfront. Transfer at Waterfront for Expo Line.</p>
+        <span class="tag">Airport connector</span>
+      </div>
+      <div class="info-card">
+        <h3>Millennium Line (Yellow)</h3>
+        <p>VCC–Clark → Lafarge Lake–Douglas. Shares Stadium–Chinatown with Expo Line. Use for arriving from Burnaby and Coquitlam.</p>
+        <span class="tag">Shares BC Place stop</span>
+      </div>
+      <div class="info-card">
+        <h3>SeaBus + West Coast Express</h3>
+        <p>SeaBus runs Waterfront → Lonsdale Quay (North Vancouver) every 15–30 min. WCE Commuter rail from Mission → Waterfront on weekdays — check schedule as it's limited on weekends.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Related Guides</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3><a href="/getting-around-vancouver-world-cup" style="color:#7aa2d4;text-decoration:none">Transit Guide</a></h3>
+        <p>Full SkyTrain guide, fares, Compass Card setup, and match-day tips.</p>
+      </div>
+      <div class="info-card">
+        <h3><a href="/fan-zones-world-cup-vancouver" style="color:#7aa2d4;text-decoration:none">Fan Zones & Watch Parties</a></h3>
+        <p>Where to watch without tickets — official fan fest, free screenings, and pub guide.</p>
+      </div>
+      <div class="info-card">
+        <h3><a href="/bc-place-guide" style="color:#7aa2d4;text-decoration:none">BC Place Guide</a></h3>
+        <p>Bag policy, gates, parking, food inside the stadium.</p>
+      </div>
+      <div class="info-card">
+        <h3><a href="/match-timeline" style="color:#7aa2d4;text-decoration:none">Match Timeline</a></h3>
+        <p>All 7 Vancouver matches with countdown timers and Event details.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>VanFC26 is an unofficial fan guide to FIFA World Cup 2026 in Vancouver.</p>
+  <p><a href="https://vanfc26.com">vanfc26.com</a> &mdash; Not affiliated with FIFA or the City of Vancouver.</p>
+  <nav>
+    <a href="/schedule">Schedule</a>
+    <a href="/bc-place-guide">BC Place</a>
+    <a href="/getting-around-vancouver-world-cup">Transit</a>
+    <a href="/visitors-guide">Visitor Info</a>
+    <a href="/food-drink-guide">Food &amp; Drink</a>
+    <a href="/nightlife-guide">Nightlife</a>
+    <a href="/fan-map">Fan Map</a>
+    <a href="/match-timeline">Match Timeline</a>
+  </nav>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var map = L.map('map', {
+    center: [49.2769, -123.1088],
+    zoom: 13,
+    zoomControl: true
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+  }).addTo(map);
+
+  function makeIcon(color, size) {
+    size = size || 12;
+    return L.divIcon({
+      className: '',
+      html: '<div style="width:' + size + 'px;height:' + size + 'px;background:' + color + ';border-radius:50%;border:2px solid rgba(255,255,255,0.7);box-shadow:0 2px 6px rgba(0,0,0,0.5)"></div>',
+      iconSize: [size, size],
+      iconAnchor: [size/2, size/2]
+    });
+  }
+
+  var markers = [];
+
+  var pins = [
+    // Venues
+    { cat:'venue', lat:49.2769, lng:-123.1118, name:'BC Place Stadium', desc:'Match venue for all 6 Vancouver World Cup games. Gate openings 2.5 hrs before kickoff. Nearest SkyTrain: Stadium–Chinatown (5 min walk).', color:'#e63e2f', size:18 },
+
+    // SkyTrain Stations
+    { cat:'transit', lat:49.2794, lng:-123.1050, name:'Stadium–Chinatown SkyTrain', desc:'Your stop for BC Place. Expo + Millennium lines. 5 min walk south to stadium gates. Expect big crowds on match days — arrive early.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2841, lng:-123.1156, name:'Granville SkyTrain', desc:'Central downtown stop. Expo Line. 15 min walk to BC Place. Good if staying near Robson or Davie St.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2856, lng:-123.1120, name:'Vancouver City Centre SkyTrain', desc:'Canada + Expo Lines. Transfer point. Heart of downtown, near major hotels.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2875, lng:-123.1117, name:'Waterfront SkyTrain / SeaBus', desc:'Expo, Canada + Millennium Line terminus. Transfer here from Canada Line (airport) to Expo Line for BC Place. SeaBus to North Van departs here.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2728, lng:-123.0994, name:'Main St–Science World SkyTrain', desc:'Expo Line. 10 min walk to BC Place along Quebec St. Useful if Chinatown station is packed.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2827, lng:-123.0693, name:'Commercial–Broadway SkyTrain', desc:'Expo + Millennium Lines. Transfer hub. Head north on Commercial Drive for bars and international food. PNE: bus 14 east on Hastings from here.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2855, lng:-123.0553, name:'Renfrew SkyTrain (PNE nearby)', desc:'Expo Line. 15 min walk north to PNE Fan Festival at Hastings Park, or bus 14 west one stop. Busy on festival days.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.1939, lng:-123.1763, name:'YVR–Airport SkyTrain', desc:'Canada Line, ~25 min to downtown Waterfront. Add-on zone fare: $5.50 from airport. Buy a Compass Card for multiple trips.', color:'#3b82f6', size:13 },
+    { cat:'transit', lat:49.2072, lng:-123.1355, name:'Bridgeport SkyTrain', desc:'Canada Line. Transfer to Richmond bus routes. Near Lansdowne and Aberdeen for Richmond food halls.', color:'#3b82f6', size:13 },
+
+    // Fan Zones
+    { cat:'fanzone', lat:49.2853, lng:-123.0388, name:'PNE Fan Festival (Hastings Park)', desc:'Official FIFA Fan Festival. Giant screens, live music, cultural activations, international food, merch. Free to enter. Open from group stage through knockout rounds.', color:'#f59e0b', size:16 },
+    { cat:'fanzone', lat:49.2849, lng:-123.1204, name:'Canada Place Fan Village', desc:'Unofficial waterfront fan gathering area near the convention centre. Great views, pop-up vendors, and overflow crowds on big match days.', color:'#f59e0b', size:14 },
+
+    // Watch Pubs
+    { cat:'bar', lat:49.2838, lng:-123.1052, name:'The Blarney Stone (Gastown)', desc:'Irish pub, Water St. Multiple big screens, opens early for matches, standing room only on match days. One of the best atmospheres in the city.', color:'#10b981', size:12 },
+    { cat:'bar', lat:49.2831, lng:-123.1076, name:'Chill Winston (Gastown)', desc:'Gastown patio bar with outdoor screen setup on match days. Great crowd, gets lively — arrive 1 hr early for a table.', color:'#10b981', size:12 },
+    { cat:'bar', lat:49.2746, lng:-123.1248, name:'Yaletown Brewing Co.', desc:'Huge brewpub, TVs on every wall, 300+ seats. Good food. On match days, book a table or get there 2 hrs early.', color:'#10b981', size:12 },
+    { cat:'bar', lat:49.2763, lng:-123.1226, name:'The Craftsman (Yaletown)', desc:'Craft beer bar, multiple screens, quieter than Gastown but good sight lines. Reservations available.', color:'#10b981', size:12 },
+    { cat:'bar', lat:49.2640, lng:-123.1014, name:'The Charlatan (Commercial Drive)', desc:'Massive beer selection, international crowd, pop-up match day setups. Great for Brazil and Portugal fans.', color:'#10b981', size:12 },
+    { cat:'bar', lat:49.2822, lng:-123.1255, name:'Library Square Pub (Downtown)', desc:'Big windows, central location, 3 min from Granville SkyTrain. Family-friendly until 9pm. Shows all group stage games.', color:'#10b981', size:12 },
+
+    // Food
+    { cat:'food', lat:49.2752, lng:-123.1155, name:'Robson St Halal / International Food Row', desc:'Stretch of halal restaurants, kebab shops, and international fast food between Granville and Burrard. Open late on match days.', color:'#a78bfa', size:12 },
+    { cat:'food', lat:49.2628, lng:-123.1047, name:'Richmond Night Market (Seasonal)', desc:'Open May–Oct on weekends. Canada Line to Bridgeport, then walk. Asian street food, BBQ, desserts, bubble tea. Takes ~45 min from downtown.', color:'#a78bfa', size:12 },
+    { cat:'food', lat:49.2797, lng:-123.1004, name:'Chinatown Food Corridor', desc:'Pender St and Keefer St. Dim sum from 8am, BBQ pork shops, Vietnamese pho, Szechuan. Walking distance from Stadium–Chinatown SkyTrain.', color:'#a78bfa', size:12 },
+    { cat:'food', lat:49.2637, lng:-123.1022, name:'Aberdeen Centre (Richmond)', desc:'Food courts with HK-style cafes, congee, ramen, and dim sum. Canada Line to Aberdeen station. Great for early pre-match meals.', color:'#a78bfa', size:12 },
+
+    // Neighbourhoods
+    { cat:'hood', lat:49.2838, lng:-123.1067, name:'Gastown', desc:'Historic cobblestone neighbourhood, 10 min walk from BC Place. Best pub atmosphere in the city. See our <a href="/gastown-world-cup-guide" style="color:#7aa2d4">Gastown guide</a>.', color:'#fb923c', size:14 },
+    { cat:'hood', lat:49.2748, lng:-123.1228, name:'Yaletown', desc:'Upscale, walkable neighbourhood 10 min from BC Place. Brewpubs, rooftop patios, False Creek seawall. See our <a href="/yaletown-world-cup-guide" style="color:#7aa2d4">Yaletown guide</a>.', color:'#fb923c', size:14 },
+    { cat:'hood', lat:49.2639, lng:-123.1011, name:'Commercial Drive', desc:'Multi-cultural, bohemian strip. Best for Brazil, Italy, Portugal vibes. 20 min from BC Place. See our <a href="/commercial-drive-world-cup-guide" style="color:#7aa2d4">Commercial Drive guide</a>.', color:'#fb923c', size:14 },
+    { cat:'hood', lat:49.1666, lng:-123.1338, name:'Richmond', desc:'Asian food paradise, 25 min Canada Line from downtown. See our <a href="/richmond-world-cup-guide" style="color:#7aa2d4">Richmond guide</a>.', color:'#fb923c', size:14 }
+  ];
+
+  pins.forEach(function(p) {
+    var m = L.marker([p.lat, p.lng], { icon: makeIcon(p.color, p.size) })
+      .bindPopup('<strong style="color:#fff;font-size:.95rem">' + p.name + '</strong><p style="color:#ccc;font-size:.84rem;margin-top:6px;line-height:1.5">' + p.desc + '</p>', {
+        maxWidth: 240,
+        className: 'custom-popup'
+      });
+    m._cat = p.cat;
+    markers.push(m);
+    m.addTo(map);
+  });
+
+  // Filter buttons
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var cat = this.getAttribute('data-cat');
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+      markers.forEach(function(m) {
+        if (cat === 'all' || m._cat === cat) {
+          m.addTo(map);
+        } else {
+          m.remove();
+        }
+      });
+    });
+  });
+
+  // Popup dark style
+  var style = document.createElement('style');
+  style.textContent = '.leaflet-popup-content-wrapper{background:#13162a;border:1px solid #1e2a4a;color:#e8e8e8;border-radius:8px}.leaflet-popup-tip{background:#13162a}.leaflet-popup-close-button{color:#888!important}';
+  document.head.appendChild(style);
+});
+</script>
+</body>
+</html>
