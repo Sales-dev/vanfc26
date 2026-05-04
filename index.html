@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VanFC26 –  Your Vancouver FIFA World Cup 2026 Guide</title>
+    <title>VanFC26 – Your Vancouver FIFA World Cup 2026 Guide</title>
     <meta name="description" content="The ultimate guide to FIFA World Cup 2026 in Vancouver â match schedule, BC Place, fan zones, getting around, where to stay, food, neighbourhoods, and day trips.">
     <meta name="keywords" content="Vancouver World Cup 2026, FIFA 2026 Vancouver, BC Place World Cup, VanFC26, Vancouver FIFA guide, World Cup 2026 Canada">
-    <meta property="og:title" content="VanFC26 â Your Vancouver FIFA World Cup 2026 Guide">
+    <meta property="og:title" content="VanFC26 – Your Vancouver FIFA World Cup 2026 Guide">
     <meta property="og:description" content="Everything you need for FIFA World Cup 2026 in Vancouver â stadium guide, transit, neighbourhoods, food, and fan zones.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vanfc26.com">
@@ -120,7 +120,7 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://vanfc26.com/og-default.png">
-  <meta name="twitter:title" content="VanFC26 â Your Vancouver FIFA World Cup 2026 Guide">
+  <meta name="twitter:title" content="VanFC26 – Your Vancouver FIFA World Cup 2026 Guide">
 <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "Article",
@@ -208,7 +208,7 @@
     <div class="hero-stats">
         <div class="stat"><div class="stat-num">48</div><div class="stat-label">Teams</div></div>
         <div class="stat"><div class="stat-num">104</div><div class="stat-label">Matches</div></div>
-        <div class="stat"><div class="stat-num">JunâJul</div><div class="stat-label">2026</div></div>
+        <div class="stat" id="cd-stat"><div class="stat-num" id="cd-num">--</div><div class="stat-label" id="cd-lbl">Days to Kickoff</div></div>
         <div class="stat"><div class="stat-num">54,500</div><div class="stat-label">BC Place Capacity</div></div>
     </div>
 </div>
@@ -426,6 +426,22 @@
 </footer>
 
 
+
+<script>
+(function(){
+  var target=new Date('2026-06-11T07:00:00Z');
+  function tick(){
+    var el=document.getElementById('cd-num'),lb=document.getElementById('cd-lbl');
+    if(!el)return;
+    var diff=target-new Date();
+    if(diff<=0){el.textContent='Live!';lb.textContent='Tournament On!';return;}
+    var d=Math.floor(diff/864e5),h=Math.floor((diff%864e5)/36e5),m=Math.floor((diff%36e5)/6e4);
+    el.textContent=d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m';
+    lb.textContent='Until Kickoff ⚽';
+  }
+  tick();setInterval(tick,30000);
+})();
+</script>
 </body>
             </html><!DOCTYPE html>
 <html lang="en">
@@ -435,7 +451,7 @@
     <title>VanFC26 –  Your Vancouver FIFA World Cup 2026 Guide</title>
     <meta name="description" content="The ultimate guide to FIFA World Cup 2026 in Vancouver â match schedule, BC Place, fan zones, getting around, where to stay, food, neighbourhoods, and day trips.">
     <meta name="keywords" content="Vancouver World Cup 2026, FIFA 2026 Vancouver, BC Place World Cup, VanFC26, Vancouver FIFA guide, World Cup 2026 Canada">
-    <meta property="og:title" content="VanFC26 â Your Vancouver FIFA World Cup 2026 Guide">
+    <meta property="og:title" content="VanFC26 – Your Vancouver FIFA World Cup 2026 Guide">
     <meta property="og:description" content="Everything you need for FIFA World Cup 2026 in Vancouver â stadium guide, transit, neighbourhoods, food, and fan zones.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vanfc26.com">
